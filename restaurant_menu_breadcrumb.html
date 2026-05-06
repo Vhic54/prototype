@@ -1,0 +1,2828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Crown Owerri</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #dc3545;
+            --primary-dark: #bb2d3b;
+            --secondary: #2c3e50;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+        }
+		.logo{
+		height:43px;
+		width:43px;
+		margin-right:8px;
+		}
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 2px solid var(--dark);
+            transition: transform 0.2s;
+        }
+
+        .cart-badge.bump {
+            transform: scale(1.4);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        /* Horizontal Main Menu Tabs */
+        .main-tabs-horizontal {
+			justify-content:center;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 1rem;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .main-tabs-horizontal::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-tab {
+		
+            border: none;
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
+            font-weight: 600;
+            color: #6c757d;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .menu-tab:hover {
+            background: var(--light);
+            color: var(--secondary);
+        }
+
+        .menu-tab.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .menu-tab img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Submenu Cards - Custom Accordion */
+        .submenu-card {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .submenu-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .submenu-header:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+
+        .submenu-header.active {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: white;
+        }
+
+        .submenu-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .submenu-header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            flex: 1;
+        }
+
+        .submenu-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .submenu-toggle {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .submenu-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .submenu-body.open {
+            max-height: 5000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        /* Menu Item Cards */
+        .item-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            height: 100%;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .item-img-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-card:hover .item-img {
+            transform: scale(1.1);
+        }
+
+        .item-badge-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-tag {
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-spicy { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); color: white; }
+        .badge-veg { background: linear-gradient(135deg, #51cf66, #40c057); color: white; }
+        .badge-popular { background: linear-gradient(135deg, #fcc419, #fab005); color: #212529; }
+
+        .item-body {
+            padding: 1.25rem;
+        }
+
+        .item-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .item-desc {
+            color: #6c757d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .item-price {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .btn-add:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-add:active {
+            transform: scale(0.95);
+        }
+
+        /* Cart Sidebar */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1040;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            background: white;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 16px;
+            margin-bottom: 0.75rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-item-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+            height: 36px;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 100%;
+            border: none;
+            background: white;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .qty-value {
+            width: 40px;
+            text-align: center;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            font-size: 0.95rem;
+        }
+
+        .btn-remove {
+            color: #dc3545;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 8px;
+        }
+
+        .btn-remove:hover {
+            background: rgba(220, 53, 69, 0.1);
+            transform: scale(1.1);
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            background: white;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            border-top: 2px solid #e9ecef;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-checkout {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 1.1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-checkout:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+        }
+
+        .btn-checkout:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #adb5bd;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1060;
+        }
+
+        .custom-toast {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        @keyframes toastIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes toastOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* Search */
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box input {
+            border-radius: 50px;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .search-box input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.4);
+            color: white;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        /* Loading */
+        .spinner-overlay {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 0.5s;
+        }
+
+        .spinner-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #6c757d;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+
+        /* Breadcrumb */
+        .breadcrumb-wrapper {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item-custom {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.35rem 0.75rem;
+            border-radius: 10px;
+        }
+
+        .breadcrumb-item-custom:hover {
+            background: var(--light);
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item-custom.active {
+            color: var(--primary);
+            font-weight: 700;
+            background: rgba(220, 53, 69, 0.08);
+        }
+
+        .breadcrumb-separator {
+            color: #adb5bd;
+            font-size: 0.8rem;
+        }
+
+        /* Subcategory hidden state */
+        .submenu-card.hidden-subcategory {
+            display: none !important;
+        }
+
+        /* Hint when no subcategory selected */
+        .select-subcategory-hint {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #6c757d;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .select-subcategory-hint i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-sidebar { max-width: 100%; }
+            .menu-tab { padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .menu-tab img { width: 28px; height: 28px; }
+            .submenu-img { width: 48px; height: 48px; }
+            .hero h1 { font-size: 1.8rem; }
+            .breadcrumb-wrapper { padding: 0.5rem 0.75rem; }
+            .breadcrumb-item-custom { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading -->
+    <div class="spinner-overlay" id="spinner">
+        <div class="text-center">
+            <div class="spinner-border text-danger mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
+            <p class="text-muted fw-bold">Loading Menu...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand " href="#"><img src="images/logo.png " class="logo">Gold Crown Hotel Menu</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navCollapse">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button class="cart-btn" id="cartToggleBtn">
+                            <i class="bi bi-cart3"></i>
+                            <span>Cart</span>
+                            <span class="cart-badge" id="cartCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="margin-top: 10px; height:300px;">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold mb-3">Our Menu</h1>
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" class="form-control" id="searchInput" placeholder="Search dishes, categories...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Main Menu Tabs -->
+    <div class="container">
+        <div class="main-tabs-horizontal" id="menuTabs"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-wrapper" id="breadcrumbWrapper">
+            <div class="breadcrumb-item-custom" id="bcMenu" onclick="breadcrumbGoToMenu()">
+                <i class="bi bi-house-door-fill"></i>
+                <span>Menughgh</span>
+            </div>
+            <i class="bi bi-chevron-right breadcrumb-separator" id="bcSep1" style="display:none;"></i>
+            <div class="breadcrumb-item-custom" id="bcCategory" style="display:none;" onclick="breadcrumbGoToCategory()">
+                <span id="bcCategoryText"></span>
+            </div>
+            <i class="bi bi-chevron-right breadcrumb-separator" id="bcSep2" style="display:none;"></i>
+            <div class="breadcrumb-item-custom active" id="bcSubcategory" style="display:none;">
+                <span id="bcSubcategoryText"></span>
+            </div>
+        </div>
+
+        <div id="menuContent"></div>
+        <div id="noResults" class="no-results d-none">
+            <i class="bi bi-search"></i>
+            <h4>No items found</h4>
+            <p>Try a different search term</p>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Your Order</h4>
+                <small class="opacity-75"><span id="cartItemCount">0</span> items</small>
+            </div>
+            <button class="btn btn-link text-white p-0" id="closeCart">
+                <i class="bi bi-x-lg fs-4"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-footer">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₦0</span>
+            </div>
+            <div class="summary-row">
+                <span>VAT (5%)</span>
+                <span id="tax">₦0</span>
+            </div>
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="total">₦0</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn" disabled>
+                <i class="bi bi-credit-card me-2"></i>Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ==========================================
+        // COMPLETE ENHANCED JSON DATA WITH IMAGES
+        // ==========================================
+        const menuData = {
+            "restaurant": "Bistro 42",
+            "currency": "₦",
+            "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop",
+            "description": "Premium dining experience with authentic Nigerian and continental cuisine",
+            "menus": [
+                {
+                    "id": "Food",
+                    "name": "Food",
+                    "description": "Start your day with our food category menu",
+                    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop",
+                    "subMenus": [
+                        {
+                            "id": "Breakfast",
+                            "name": "Breakfast",
+                            "description": "Start your morning right with our delicious breakfast options",
+                            "image": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "OAT WITH MILK/SUGAR", "price": 2500, "description": "Healthy oatmeal with milk and sugar", "image": "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400&h=300&fit=crop" },
+                                { "name": "CORNFLAKES WITH MILK/SUGAR", "price": 4000, "description": "Crispy cornflakes served with milk and sugar", "image": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=400&h=300&fit=crop" },
+                                { "name": "CUSTARD WITH MILK/SUGAR", "price": 2000, "description": "Creamy custard with milk and sugar", "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" },
+                                { "name": "PAP WITH MILK/SUGAR", "price": 2500, "description": "Traditional African pap porridge with milk", "image": "https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=400&h=300&fit=crop" },
+                                { "name": "BOILED POTATOS/YAM/PLANTAIN WITH TWO EGGS", "price": 5000, "description": "Boiled tubers served with two eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN NOODLES ONLY", "price": 2000, "description": "Classic instant noodles", "image": "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN NOODLES WITH TWO BOILED EGGS", "price": 3500, "description": "Instant noodles with two boiled eggs", "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE NOODLES ONLY", "price": 3000, "description": "Noodles stir-fried with vegetables", "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE NOODLES WITH FRIED EGGS", "price": 3500, "description": "Vegetable noodles topped with fried eggs", "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop" },
+                                { "name": "BEANS", "price": 1500, "description": "Plain cooked beans", "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=400&h=300&fit=crop" },
+                                { "name": "BAKED BEANS", "price": 1500, "description": "Beans baked in tomato sauce", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "TOASTED OR FRESH BREAD", "price": 2000, "description": "Choice of toasted or fresh sliced bread", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "LIPTON TEA OR COFFEE OR HOT CHOCOLATE", "price": 1000, "description": "Hot beverage of your choice", "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop" },
+                                { "name": "BREAKFAST SAUSAGE (2PCS)", "price": 2000, "description": "Four pieces of breakfast sausage", "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" },
+                                { "name": "YAM/PLANTAIN PORRIDGE (NO PROTEIN INSIDE)", "price": 4000, "description": "Yam or plantain porridge", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "BOILED YAM OR PLANTAIN WITH STEW", "price": 6000, "description": "Boiled tubers served with tomato stew", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" },
+                                { "name": "TOMATO SAUCE TIN MILK", "price": 1500, "description": "Tomato sauce with milk", "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop" },
+                                { "name": "CLUB SANDWICH", "price": 5500, "description": "Triple-decker sandwich with chicken, egg, and veggies", "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop" },
+                                { "name": "PANCAKE WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Fluffy pancakes with eggs or syrup", "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop" },
+                                { "name": "WAFFLES WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Crispy waffles with eggs or syrup", "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=400&h=300&fit=crop" },
+                                { "name": "FRENCH TOAST WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Egg-battered toast with eggs or syrup", "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop" },
+                                { "name": "EGG SAUCE", "price": 3000, "description": "Scrambled eggs in tomato sauce", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "TOMATOES OMELET", "price": 2500, "description": "Omelet with fresh tomatoes", "image": "https://images.unsplash.com/photo-1510693206972-df098062cb71?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN OMELET/FRIED EGG", "price": 2000, "description": "Simple omelet or fried egg", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "SCRAMBLE EGG", "price": 2000, "description": "Scrambled eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "SUNNY SIDE UP", "price": 2000, "description": "Fried egg with runny yolk", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "BOILED EGG (2PCS)", "price": 1500, "description": "Two boiled eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Continental",
+                            "name": "Continental Cuisine",
+                            "description": "Exquisite continental dishes with premium proteins",
+                            "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CHICKEN CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH CHICKEN", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH GOAT MEAT", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "BEEF CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH BEEF", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "FISH CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH FISH", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH SNAIL", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMP CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH SHRIMP", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" },
+                                { "name": "KING PRAWN CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH KING PRAWN", "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH TURKEY", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Chinese",
+                            "name": "Chinese Cuisine",
+                            "description": "Authentic Chinese rice dishes with your choice of protein",
+                            "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "BEEF CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH BEEF", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH CHICKEN", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMPS CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH SHRIMPS", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" },
+                                { "name": "FISH CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH FISH", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH SNAIL", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH TURKEY", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH GOAT MEAT", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "KING PRAWN CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH KING PRAWNS", "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=400&h=300&fit=crop" },
+                                { "name": "HOUSE SPECIAL (2 PROTEIN COMBO)", "price": 14000, "description": "CHINESE RICE SERVED WITH 2 PROTEINS OF CHOICE", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Nigerian-Soups",
+                            "name": "Nigerian Soups",
+                            "description": "Traditional Nigerian soups rich in flavor and culture",
+                            "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "EGUSI SOUP", "price": 2000, "description": "Melon seed soup with vegetables", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "BITTER-LEAF SOUP", "price": 2000, "description": "Traditional soup with bitter leaf", "image": "https://images.unsplash.com/photo-1547592166-23acbe3a624b?w=400&h=300&fit=crop" },
+                                { "name": "OHA SOUP", "price": 2000, "description": "African rosewood leaf soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "OGBONO SOUP", "price": 2500, "description": "Wild mango seed soup", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "OKRO SOUP", "price": 2500, "description": "Okra vegetable soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "AFANG SOUP", "price": 3000, "description": "Wild spinach and waterleaf soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE SOUP", "price": 3000, "description": "Mixed green vegetable soup", "image": "https://images.unsplash.com/photo-1547592166-23acbe3a624b?w=400&h=300&fit=crop" },
+                                { "name": "OFE-OWERRI SOUP", "price": 5000, "description": "Traditional Owerri-style soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "NSALA SOUP", "price": 3000, "description": "White soup with spices", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Local Delicacy",
+                            "name": "Local Delicacy",
+                            "description": "Authentic local delicacies for the adventurous palate",
+                            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "ISI EWU WITH UGBA", "price": 15000, "description": "Spicy goat head with palm oil and utazi leaves", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "NKWUOBI WITH UGBA", "price": 10000, "description": "Palm oil bean mash with fermented oil bean seeds", "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=400&h=300&fit=crop" },
+                                { "name": "ASUN WITH PLANTAIN", "price": 6000, "description": "Spicy grilled goat meat with fried plantain", "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop" },
+                                { "name": "GIZZY DODO", "price": 5500, "description": "Gizzard and fried plantain in spicy sauce", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Swallow",
+                            "name": "Swallow (Fufu, Garri, etc.)",
+                            "description": "Traditional Nigerian swallow varieties",
+                            "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "POUNDED YAM", "price": 1000, "description": "Smooth pounded yam", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "GARRI (EBA)", "price": 1000, "description": "Cassava flakes made into dough", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "SEMOLINA", "price": 1500, "description": "Semolina wheat dough", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "WHEAT", "price": 1500, "description": "Whole wheat dough", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "POUNDO", "price": 1500, "description": "Yam flour dough", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "OAT MEAL", "price": 1000, "description": "Oat Swallow", "image": "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400&h=300&fit=crop" },
+                                { "name": "PLANTAIN FLOUR", "price": 1500, "description": "Plantain flour swallow", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Sauce",
+                            "name": "Sauce",
+                            "description": "Rich and flavorful sauces to complement your meal",
+                            "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "TOMATO SAUCE", "price": 2000, "description": "Rich tomato-based sauce", "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE SAUCE", "price": 4000, "description": "Mixed vegetable sauce", "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop" },
+                                { "name": "BEEF CURRY SAUCE", "price": 5000, "description": "Spicy curry sauce with beef", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN CURRY SAUCE", "price": 7000, "description": "Spicy curry sauce with chicken", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" },
+                                { "name": "SHREDDED BEEF SAUCE", "price": 5000, "description": "Shredded beef in rich sauce", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN WITH MUSHROOM SAUCE", "price": 5500, "description": "Chicken in creamy mushroom sauce", "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&h=300&fit=crop" },
+                                { "name": "KIDNEY LIVER SAUCE", "price": 4000, "description": "Organ meat sauce with kidney and liver", "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Hot Soup",
+                            "name": "Hot Soup",
+                            "description": "Spicy and warming pepper soups",
+                            "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CHICKEN CORN SOUP", "price": 7000, "description": "Creamy corn soup with chicken", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with chicken", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "BEEF PEPPER SOUP", "price": 5500, "description": "Spicy pepper soup with beef", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with goat meat", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "GIZZARD PEPPER SOUP", "price": 5000, "description": "Spicy pepper soup with chicken gizzard", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" },
+                                { "name": "COWLEG PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with cow leg", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "FRESH FISH PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with fresh fish", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "ASSORTED PEPPER SOUP", "price": 5000, "description": "Spicy pepper soup with mixed meats", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL PEPPER SOUP", "price": 7000, "description": "Spicy pepper soup with snails", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY PEPPER SOUP", "price": 8000, "description": "Spicy pepper soup with turkey", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Cold Starters",
+                            "name": "Cold Starters",
+                            "description": "Fresh and refreshing cold starters",
+                            "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "VEGETABLE SALAD", "price": 2000, "description": "Fresh mixed vegetable salad", "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" },
+                                { "name": "RUSSIAN SALAD SERVER COLD", "price": 3500, "description": "Cold Russian-style potato and vegetable salad", "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN SALAD", "price": 5000, "description": "Grilled chicken with mixed greens", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" },
+                                { "name": "PASTA SALAD", "price": 2500, "description": "Cold pasta with vegetables and dressing", "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop" },
+                                { "name": "POTATO SALAD", "price": 2500, "description": "Creamy potato salad", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" },
+                                { "name": "TUNA SALAD", "price": 5000, "description": "Tuna salad with vegetables", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Pasta",
+                            "name": "Pasta",
+                            "description": "Italian and Asian pasta specialties",
+                            "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "SPAGHETTI VEGETARIAN", "price": 3500, "description": "Spaghetti with mixed vegetables", "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop" },
+                                { "name": "SPAGHETTI BOLOGNAISE", "price": 10000, "description": "Spaghetti with meat sauce", "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" },
+                                { "name": "SPAGHETTI CARBONARA", "price": 10000, "description": "Spaghetti with creamy egg and bacon sauce", "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN FRIED NOODLES", "price": 8000, "description": "Stir-fried noodles with chicken", "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" },
+                                { "name": "BEEF FRIED NOODLES", "price": 7000, "description": "Stir-fried noodles with beef", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMP FRIED NOODLES", "price": 9500, "description": "Stir-fried noodles with shrimp", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Plain-Meal",
+                            "name": "Plain Meal",
+                            "description": "Simple and satisfying plain meals",
+                            "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "GRILLED CHICKEN", "price": 10000, "description": "Charcoal-grilled chicken", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "BEEF KEBAB", "price": 6000, "description": "Skewered and grilled beef", "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400&h=300&fit=crop" },
+                                { "name": "CHINESE FRIED RICE", "price": 3500, "description": "Oriental-style fried rice", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "CHINESE EGG FRIED RICE", "price": 5000, "description": "Fried rice with scrambled eggs", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN FRIED OR JELLOF RICE", "price": 3000, "description": "Choice of fried rice or jollof rice", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "WHITE RICE AND STEW", "price": 4000, "description": "Plain rice with tomato stew", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Protein",
+                            "name": "Protein",
+                            "description": "Premium protein options to complete your meal",
+                            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "PEPPERED CHICKEN", "price": 6000, "description": "Spicy peppered chicken", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "PEPPERED GOAT MEAT", "price": 6000, "description": "Spicy peppered goat meat", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "PEPPERED BEEF", "price": 5500, "description": "Spicy peppered beef", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "PEPPERED SNAIL", "price": 7000, "description": "Spicy peppered snails", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "PEPPERED DRY FISH", "price": 6000, "description": "Spicy peppered dry fish", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "PEPPERED CATFISH/CROAKER", "price": 8000, "description": "Spicy peppered catfish or croaker", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY", "price": 8000, "description": "Roasted or grilled turkey", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "Drinks",
+                    "name": "Drinks",
+                    "description": "Fine spirits, wines, beers and soft drinks",
+                    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&h=300&fit=crop",
+                    "subMenus": [
+                        {
+                            "id": "Spirits",
+                            "name": "Spirits",
+                            "description": "Premium spirits and liquors",
+                            "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "HENNESSY VS", "price": 90000, "description": "France Cognac", "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=300&fit=crop" },
+                                { "name": "HENNESSY VSOP", "price": 130000, "description": "France Cognac", "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=300&fit=crop" },
+                                { "name": "MOET(BRUTE)", "price": 160000, "description": "France Champagne", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "MOET(ROSE)", "price": 160000, "description": "France Champagne", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "BLACK LABEL", "price": 40000, "description": "12 Year Scotch Whisky", "image": "https://images.unsplash.com/photo-1527281400683-1a7e0ccd1ea3?w=400&h=300&fit=crop" },
+                                { "name": "RED LABEL", "price": 30000, "description": "12 Year Scotch Whisky", "image": "https://images.unsplash.com/photo-1527281400683-1a7e0ccd1ea3?w=400&h=300&fit=crop" },
+                                { "name": "GLENFIDDICH 12", "price": 120000, "description": "Single Malt Scotch Whisky", "image": "https://images.unsplash.com/photo-1527281400683-1a7e0ccd1ea3?w=400&h=300&fit=crop" },
+                                { "name": "GLENFIDDICH 18", "price": 180000, "description": "Single Malt Scotch Whisky", "image": "https://images.unsplash.com/photo-1527281400683-1a7e0ccd1ea3?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Sparkling Wines",
+                            "name": "Sparkling Wines",
+                            "description": "Sparkling wines for special occasions",
+                            "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "MATEUS BRUT ROSE", "price": 20000, "description": "Portuguese sparkling rosé", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "ANDRE ROSE", "price": 20000, "description": "California sparkling rosé", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "ANDRE BRUT", "price": 20000, "description": "Sparkling wine", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "HENKEL ROSE", "price": 45000, "description": "German sparkling rosé", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "HENKEL VARIETY", "price": 10000, "description": "German sparkling wine selection", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "PINK LADY PERRY", "price": 8000, "description": "Sweet pear cider", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "CASTLE DEFERO", "price": 20000, "description": "Sparkling wine", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" },
+                                { "name": "FOUR COUSINS SPARKLING RED", "price": 20000, "description": "South African sparkling red wine", "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Red Wines",
+                            "name": "Red Wines",
+                            "description": "Fine red wines from around the world",
+                            "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CARLO ROSSI RED (SWEET)", "price": 25000, "description": "California Red Wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "CARLO ROSSI RED", "price": 25000, "description": "California Red Wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "ESCUDO ROJO", "price": 23000, "description": "Chilean red wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "TOMA TOMA BODEGAS LOZANO", "price": 10000, "description": "Spanish red wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "SAN SIMON CASTILO", "price": 10000, "description": "Spanish red wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "B&G", "price": 15000, "description": "French red wine", "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop" },
+                                { "name": "THOMAS I'll fix the submenu accordion issue and move the main menu to a horizontal top navigation. The problem with submenus not dropping was likely due to Bootstrap collapse ID conflicts or the accordion not being properly initialized. I'll use a custom toggle approach for reliability.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu - Order Now</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #dc3545;
+            --primary-dark: #bb2d3b;
+            --secondary: #2c3e50;
+            --accent: #f39c12;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cart-btn {
+            position: relative;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: white;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cart-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border: 2px solid var(--dark);
+            transition: transform 0.2s;
+        }
+
+        .cart-badge.bump {
+            transform: scale(1.4);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(220, 53, 69, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        /* Horizontal Main Menu Tabs */
+        .main-tabs-horizontal {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            padding: 1rem;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .main-tabs-horizontal::-webkit-scrollbar {
+            display: none;
+        }
+
+        .menu-tab {
+            border: none;
+            background: transparent;
+            padding: 0.75rem 1.5rem;
+            border-radius: 15px;
+            font-weight: 600;
+            color: #6c757d;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .menu-tab:hover {
+            background: var(--light);
+            color: var(--secondary);
+        }
+
+        .menu-tab.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .menu-tab img {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Submenu Cards - Custom Accordion */
+        .submenu-card {
+            border: none;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .submenu-header {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .submenu-header:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+        }
+
+        .submenu-header.active {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: white;
+        }
+
+        .submenu-header.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .submenu-header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            flex: 1;
+        }
+
+        .submenu-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .submenu-toggle {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .submenu-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .submenu-body.open {
+            max-height: 5000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        /* Menu Item Cards */
+        .item-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            height: 100%;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .item-img-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-card:hover .item-img {
+            transform: scale(1.1);
+        }
+
+        .item-badge-overlay {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .badge-tag {
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-spicy { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); color: white; }
+        .badge-veg { background: linear-gradient(135deg, #51cf66, #40c057); color: white; }
+        .badge-popular { background: linear-gradient(135deg, #fcc419, #fab005); color: #212529; }
+
+        .item-body {
+            padding: 1.25rem;
+        }
+
+        .item-name {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .item-desc {
+            color: #6c757d;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .item-price {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.25rem;
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            white-space: nowrap;
+        }
+
+        .btn-add:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-add:active {
+            transform: scale(0.95);
+        }
+
+        /* Cart Sidebar */
+        .cart-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 1040;
+        }
+
+        .cart-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            background: white;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1050;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            right: 0;
+        }
+
+        .cart-header {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: 16px;
+            margin-bottom: 0.75rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .cart-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .cart-item-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .qty-control {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+            height: 36px;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 100%;
+            border: none;
+            background: white;
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .qty-value {
+            width: 40px;
+            text-align: center;
+            font-weight: 700;
+            border: none;
+            background: transparent;
+            font-size: 0.95rem;
+        }
+
+        .btn-remove {
+            color: #dc3545;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 8px;
+        }
+
+        .btn-remove:hover {
+            background: rgba(220, 53, 69, 0.1);
+            transform: scale(1.1);
+        }
+
+        .cart-footer {
+            padding: 1.5rem;
+            background: white;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--dark);
+            border-top: 2px solid #e9ecef;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .btn-checkout {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 1.1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-checkout:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+        }
+
+        .btn-checkout:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #adb5bd;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1060;
+        }
+
+        .custom-toast {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        @keyframes toastIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes toastOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* Search */
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box input {
+            border-radius: 50px;
+            padding: 1rem 1.5rem 1rem 3rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .search-box input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.4);
+            color: white;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 1.1rem;
+        }
+
+        /* Loading */
+        .spinner-overlay {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 0.5s;
+        }
+
+        .spinner-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #6c757d;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #adb5bd;
+        }
+
+
+        /* Breadcrumb */
+        .breadcrumb-wrapper {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item-custom {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 0.35rem 0.75rem;
+            border-radius: 10px;
+        }
+
+        .breadcrumb-item-custom:hover {
+            background: var(--light);
+            color: var(--secondary);
+        }
+
+        .breadcrumb-item-custom.active {
+            color: var(--primary);
+            font-weight: 700;
+            background: rgba(220, 53, 69, 0.08);
+        }
+
+        .breadcrumb-separator {
+            color: #adb5bd;
+            font-size: 0.8rem;
+        }
+
+        /* Subcategory hidden state */
+        .submenu-card.hidden-subcategory {
+            display: none !important;
+        }
+
+        /* Hint when no subcategory selected */
+        .select-subcategory-hint {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #6c757d;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .select-subcategory-hint i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cart-sidebar { max-width: 100%; }
+            .menu-tab { padding: 0.6rem 1rem; font-size: 0.9rem; }
+            .menu-tab img { width: 28px; height: 28px; }
+            .submenu-img { width: 48px; height: 48px; }
+            .hero h1 { font-size: 1.8rem; }
+            .breadcrumb-wrapper { padding: 0.5rem 0.75rem; }
+            .breadcrumb-item-custom { font-size: 0.8rem; padding: 0.25rem 0.5rem; }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading -->
+    <div class="spinner-overlay" id="spinner">
+        <div class="text-center">
+            <div class="spinner-border text-danger mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
+            <p class="text-muted fw-bold">Loading Menu...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="bi bi-shop-window me-2"></i>Bistro 42</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navCollapse">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="#">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <button class="cart-btn" id="cartToggleBtn">
+                            <i class="bi bi-cart3"></i>
+                            <span>Cart</span>
+                            <span class="cart-badge" id="cartCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" style="margin-top: 70px;">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold mb-3">Our Menu</h1>
+            <p class="lead opacity-75 mb-4">Fresh flavors, authentic taste, delivered to you</p>
+            <div class="search-box">
+                <i class="bi bi-search"></i>
+                <input type="text" class="form-control" id="searchInput" placeholder="Search dishes, categories...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Horizontal Main Menu Tabs -->
+    <div class="container">
+        <div class="main-tabs-horizontal" id="menuTabs"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-wrapper" id="breadcrumbWrapper">
+            <div class="breadcrumb-item-custom" id="bcMenu" onclick="breadcrumbGoToMenu()">
+                <i class="bi bi-house-door-fill"></i>
+                <span>Menu</span>
+            </div>
+            <i class="bi bi-chevron-right breadcrumb-separator" id="bcSep1" style="display:none;"></i>
+            <div class="breadcrumb-item-custom" id="bcCategory" style="display:none;" onclick="breadcrumbGoToCategory()">
+                <span id="bcCategoryText"></span>
+            </div>
+            <i class="bi bi-chevron-right breadcrumb-separator" id="bcSep2" style="display:none;"></i>
+            <div class="breadcrumb-item-custom active" id="bcSubcategory" style="display:none;">
+                <span id="bcSubcategoryText"></span>
+            </div>
+        </div>
+
+        <div id="menuContent"></div>
+        <div id="noResults" class="no-results d-none">
+            <i class="bi bi-search"></i>
+            <h4>No items found</h4>
+            <p>Try a different search term</p>
+        </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header d-flex justify-content-between align-items-center">
+            <div>
+                <h4 class="mb-0 fw-bold"><i class="bi bi-cart3 me-2"></i>Your Order</h4>
+                <small class="opacity-75"><span id="cartItemCount">0</span> items</small>
+            </div>
+            <button class="btn btn-link text-white p-0" id="closeCart">
+                <i class="bi bi-x-lg fs-4"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-footer">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₦0</span>
+            </div>
+            <div class="summary-row">
+                <span>VAT (5%)</span>
+                <span id="tax">₦0</span>
+            </div>
+            <div class="summary-total">
+                <span>Total</span>
+                <span id="total">₦0</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn" disabled>
+                <i class="bi bi-credit-card me-2"></i>Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // ==========================================
+        // COMPLETE ENHANCED JSON DATA WITH IMAGES
+        // ==========================================
+        const menuData = {
+            "restaurant": "Bistro 42",
+            "currency": "₦",
+            "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=400&fit=crop",
+            "description": "Premium dining experience with authentic Nigerian and continental cuisine",
+            "menus": [
+                {
+                    "id": "Food",
+                    "name": "Food",
+                    "description": "Start your day with our food category menu",
+                    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop",
+                    "subMenus": [
+                        {
+                            "id": "Breakfast",
+                            "name": "Breakfast",
+                            "description": "Start your morning right with our delicious breakfast options",
+                            "image": "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "OAT WITH MILK/SUGAR", "price": 2500, "description": "Healthy oatmeal with milk and sugar", "image": "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400&h=300&fit=crop" },
+                                { "name": "CORNFLAKES WITH MILK/SUGAR", "price": 4000, "description": "Crispy cornflakes served with milk and sugar", "image": "https://images.unsplash.com/photo-1521483451569-e33803c0330c?w=400&h=300&fit=crop" },
+                                { "name": "CUSTARD WITH MILK/SUGAR", "price": 2000, "description": "Creamy custard with milk and sugar", "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" },
+                                { "name": "PAP WITH MILK/SUGAR", "price": 2500, "description": "Traditional African pap porridge with milk", "image": "https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=400&h=300&fit=crop" },
+                                { "name": "BOILED POTATOS/YAM/PLANTAIN WITH TWO EGGS", "price": 5000, "description": "Boiled tubers served with two eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN NOODLES ONLY", "price": 2000, "description": "Classic instant noodles", "image": "https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN NOODLES WITH TWO BOILED EGGS", "price": 3500, "description": "Instant noodles with two boiled eggs", "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE NOODLES ONLY", "price": 3000, "description": "Noodles stir-fried with vegetables", "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE NOODLES WITH FRIED EGGS", "price": 3500, "description": "Vegetable noodles topped with fried eggs", "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop" },
+                                { "name": "BEANS", "price": 1500, "description": "Plain cooked beans", "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=400&h=300&fit=crop" },
+                                { "name": "BAKED BEANS", "price": 1500, "description": "Beans baked in tomato sauce", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "TOASTED OR FRESH BREAD", "price": 2000, "description": "Choice of toasted or fresh sliced bread", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "LIPTON TEA OR COFFEE OR HOT CHOCOLATE", "price": 1000, "description": "Hot beverage of your choice", "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop" },
+                                { "name": "BREAKFAST SAUSAGE (2PCS)", "price": 2000, "description": "Four pieces of breakfast sausage", "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" },
+                                { "name": "YAM/PLANTAIN PORRIDGE (NO PROTEIN INSIDE)", "price": 4000, "description": "Yam or plantain porridge", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "BOILED YAM OR PLANTAIN WITH STEW", "price": 6000, "description": "Boiled tubers served with tomato stew", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" },
+                                { "name": "TOMATO SAUCE TIN MILK", "price": 1500, "description": "Tomato sauce with milk", "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop" },
+                                { "name": "CLUB SANDWICH", "price": 5500, "description": "Triple-decker sandwich with chicken, egg, and veggies", "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400&h=300&fit=crop" },
+                                { "name": "PANCAKE WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Fluffy pancakes with eggs or syrup", "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop" },
+                                { "name": "WAFFLES WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Crispy waffles with eggs or syrup", "image": "https://images.unsplash.com/photo-1562376552-0d160a2f238d?w=400&h=300&fit=crop" },
+                                { "name": "FRENCH TOAST WITH SCRAMBLED EGG/SYRUP", "price": 6500, "description": "Egg-battered toast with eggs or syrup", "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop" },
+                                { "name": "EGG SAUCE", "price": 3000, "description": "Scrambled eggs in tomato sauce", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "TOMATOES OMELET", "price": 2500, "description": "Omelet with fresh tomatoes", "image": "https://images.unsplash.com/photo-1510693206972-df098062cb71?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN OMELET/FRIED EGG", "price": 2000, "description": "Simple omelet or fried egg", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "SCRAMBLE EGG", "price": 2000, "description": "Scrambled eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "SUNNY SIDE UP", "price": 2000, "description": "Fried egg with runny yolk", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "BOILED EGG (2PCS)", "price": 1500, "description": "Two boiled eggs", "image": "https://images.unsplash.com/photo-1482049016688-2c107229654b?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Continental",
+                            "name": "Continental Cuisine",
+                            "description": "Exquisite continental dishes with premium proteins",
+                            "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CHICKEN CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH CHICKEN", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH GOAT MEAT", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "BEEF CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH BEEF", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "FISH CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH FISH", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH SNAIL", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMP CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH SHRIMP", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" },
+                                { "name": "KING PRAWN CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH KING PRAWN", "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY CONTINENTAL CUISINE", "price": 14000, "description": "JELLOF RICE, FRIED RICE, COCONUT RICE, NATIVE RICE OR WHITE RICE SERVED WITH TURKEY", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Chinese",
+                            "name": "Chinese Cuisine",
+                            "description": "Authentic Chinese rice dishes with your choice of protein",
+                            "image": "https://images.unsplash.com/photo-1525755662778-989d0524087e?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "BEEF CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH BEEF", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH CHICKEN", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMPS CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH SHRIMPS", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" },
+                                { "name": "FISH CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH FISH", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH SNAIL", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH TURKEY", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH GOAT MEAT", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "KING PRAWN CHINESE RICE", "price": 14000, "description": "CHINESE RICE SERVED WITH KING PRAWNS", "image": "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=400&h=300&fit=crop" },
+                                { "name": "HOUSE SPECIAL (2 PROTEIN COMBO)", "price": 14000, "description": "CHINESE RICE SERVED WITH 2 PROTEINS OF CHOICE", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Nigerian-Soups",
+                            "name": "Nigerian Soups",
+                            "description": "Traditional Nigerian soups rich in flavor and culture",
+                            "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "EGUSI SOUP", "price": 2000, "description": "Melon seed soup with vegetables", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "BITTER-LEAF SOUP", "price": 2000, "description": "Traditional soup with bitter leaf", "image": "https://images.unsplash.com/photo-1547592166-23acbe3a624b?w=400&h=300&fit=crop" },
+                                { "name": "OHA SOUP", "price": 2000, "description": "African rosewood leaf soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "OGBONO SOUP", "price": 2500, "description": "Wild mango seed soup", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "OKRO SOUP", "price": 2500, "description": "Okra vegetable soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "AFANG SOUP", "price": 3000, "description": "Wild spinach and waterleaf soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE SOUP", "price": 3000, "description": "Mixed green vegetable soup", "image": "https://images.unsplash.com/photo-1547592166-23acbe3a624b?w=400&h=300&fit=crop" },
+                                { "name": "OFE-OWERRI SOUP", "price": 5000, "description": "Traditional Owerri-style soup", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "NSALA SOUP", "price": 3000, "description": "White soup with spices", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Local Delicacy",
+                            "name": "Local Delicacy",
+                            "description": "Authentic local delicacies for the adventurous palate",
+                            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "ISI EWU WITH UGBA", "price": 15000, "description": "Spicy goat head with palm oil and utazi leaves", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "NKWUOBI WITH UGBA", "price": 10000, "description": "Palm oil bean mash with fermented oil bean seeds", "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=400&h=300&fit=crop" },
+                                { "name": "ASUN WITH PLANTAIN", "price": 6000, "description": "Spicy grilled goat meat with fried plantain", "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400&h=300&fit=crop" },
+                                { "name": "GIZZY DODO", "price": 5500, "description": "Gizzard and fried plantain in spicy sauce", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Swallow",
+                            "name": "Swallow (Fufu, Garri, etc.)",
+                            "description": "Traditional Nigerian swallow varieties",
+                            "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "POUNDED YAM", "price": 1000, "description": "Smooth pounded yam", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "GARRI (EBA)", "price": 1000, "description": "Cassava flakes made into dough", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "SEMOLINA", "price": 1500, "description": "Semolina wheat dough", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "WHEAT", "price": 1500, "description": "Whole wheat dough", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "POUNDO", "price": 1500, "description": "Yam flour dough", "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=300&fit=crop" },
+                                { "name": "OAT MEAL", "price": 1000, "description": "Oat Swallow", "image": "https://images.unsplash.com/photo-1517673400267-0251440c45dc?w=400&h=300&fit=crop" },
+                                { "name": "PLANTAIN FLOUR", "price": 1500, "description": "Plantain flour swallow", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Sauce",
+                            "name": "Sauce",
+                            "description": "Rich and flavorful sauces to complement your meal",
+                            "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "TOMATO SAUCE", "price": 2000, "description": "Rich tomato-based sauce", "image": "https://images.unsplash.com/photo-1472476443507-7c5483d5249b?w=400&h=300&fit=crop" },
+                                { "name": "VEGETABLE SAUCE", "price": 4000, "description": "Mixed vegetable sauce", "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop" },
+                                { "name": "BEEF CURRY SAUCE", "price": 5000, "description": "Spicy curry sauce with beef", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN CURRY SAUCE", "price": 7000, "description": "Spicy curry sauce with chicken", "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop" },
+                                { "name": "SHREDDED BEEF SAUCE", "price": 5000, "description": "Shredded beef in rich sauce", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN WITH MUSHROOM SAUCE", "price": 5500, "description": "Chicken in creamy mushroom sauce", "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&h=300&fit=crop" },
+                                { "name": "KIDNEY LIVER SAUCE", "price": 4000, "description": "Organ meat sauce with kidney and liver", "image": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Hot Soup",
+                            "name": "Hot Soup",
+                            "description": "Spicy and warming pepper soups",
+                            "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CHICKEN CORN SOUP", "price": 7000, "description": "Creamy corn soup with chicken", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with chicken", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "BEEF PEPPER SOUP", "price": 5500, "description": "Spicy pepper soup with beef", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "GOAT MEAT PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with goat meat", "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" },
+                                { "name": "GIZZARD PEPPER SOUP", "price": 5000, "description": "Spicy pepper soup with chicken gizzard", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" },
+                                { "name": "COWLEG PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with cow leg", "image": "https://images.unsplash.com/photo-1546833998-877b37c2e5c4?w=400&h=300&fit=crop" },
+                                { "name": "FRESH FISH PEPPER SOUP", "price": 6000, "description": "Spicy pepper soup with fresh fish", "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=300&fit=crop" },
+                                { "name": "ASSORTED PEPPER SOUP", "price": 5000, "description": "Spicy pepper soup with mixed meats", "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=400&h=300&fit=crop" },
+                                { "name": "SNAIL PEPPER SOUP", "price": 7000, "description": "Spicy pepper soup with snails", "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=400&h=300&fit=crop" },
+                                { "name": "TURKEY PEPPER SOUP", "price": 8000, "description": "Spicy pepper soup with turkey", "image": "https://images.unsplash.com/photo-1574672280600-4accfa5b6f98?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Cold Starters",
+                            "name": "Cold Starters",
+                            "description": "Fresh and refreshing cold starters",
+                            "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "VEGETABLE SALAD", "price": 2000, "description": "Fresh mixed vegetable salad", "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" },
+                                { "name": "RUSSIAN SALAD SERVER COLD", "price": 3500, "description": "Cold Russian-style potato and vegetable salad", "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN SALAD", "price": 5000, "description": "Grilled chicken with mixed greens", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" },
+                                { "name": "PASTA SALAD", "price": 2500, "description": "Cold pasta with vegetables and dressing", "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop" },
+                                { "name": "POTATO SALAD", "price": 2500, "description": "Creamy potato salad", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" },
+                                { "name": "TUNA SALAD", "price": 5000, "description": "Tuna salad with vegetables", "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Pasta",
+                            "name": "Pasta",
+                            "description": "Italian and Asian pasta specialties",
+                            "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "SPAGHETTI VEGETARIAN", "price": 3500, "description": "Spaghetti with mixed vegetables", "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=400&h=300&fit=crop" },
+                                { "name": "SPAGHETTI BOLOGNAISE", "price": 10000, "description": "Spaghetti with meat sauce", "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" },
+                                { "name": "SPAGHETTI CARBONARA", "price": 10000, "description": "Spaghetti with creamy egg and bacon sauce", "image": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN FRIED NOODLES", "price": 8000, "description": "Stir-fried noodles with chicken", "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop" },
+                                { "name": "BEEF FRIED NOODLES", "price": 7000, "description": "Stir-fried noodles with beef", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "SHRIMP FRIED NOODLES", "price": 9500, "description": "Stir-fried noodles with shrimp", "image": "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Plain-Meal",
+                            "name": "Plain Meal",
+                            "description": "Simple and satisfying plain meals",
+                            "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "GRILLED CHICKEN", "price": 10000, "description": "Charcoal-grilled chicken", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "BEEF KEBAB", "price": 6000, "description": "Skewered and grilled beef", "image": "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=400&h=300&fit=crop" },
+                                { "name": "CHINESE FRIED RICE", "price": 3500, "description": "Oriental-style fried rice", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "CHINESE EGG FRIED RICE", "price": 5000, "description": "Fried rice with scrambled eggs", "image": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop" },
+                                { "name": "PLAIN FRIED OR JELLOF RICE", "price": 3000, "description": "Choice of fried rice or jollof rice", "image": "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=400&h=300&fit=crop" },
+                                { "name": "WHITE RICE AND STEW", "price": 4000, "description": "Plain rice with tomato stew", "image": "https://images.unsplash.com/photo-1606850780554-b55ea2cecf74?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Protein",
+                            "name": "Protein",
+                            "description": "Premium protein options to complete your meal",
+                            "image": "https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "PEPPERED CHICKEN", "price": 6000, "description": "Spicy peppered chicken", "image": "images/chicken.jpg" },
+                                { "name": "PEPPERED GOAT MEAT", "price": 6000, "description": "Spicy peppered goat meat", "image": "images/goat.jpg" },
+                                { "name": "PEPPERED BEEF", "price": 5500, "description": "Spicy peppered beef", "image": "images/beef.jpg" },
+                                { "name": "PEPPERED SNAIL", "price": 7000, "description": "Spicy peppered snails", "image": "images/snail.jpg" },
+                                { "name": "PEPPERED DRY FISH", "price": 6000, "description": "Spicy peppered dry fish", "image": "images/fish.jpg" },
+                                { "name": "PEPPERED CATFISH/CROAKER", "price": 8000, "description": "Spicy peppered catfish or croaker", "image": "images/catfish.jpg" },
+                                { "name": "TURKEY", "price": 8000, "description": "Roasted or grilled turkey", "image": "images/turkey.jpg" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "Drinks",
+                    "name": "Drinks",
+                    "description": "Fine spirits, wines, beers and soft drinks",
+                    "image": "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&h=300&fit=crop",
+                    "subMenus": [
+                        {
+                            "id": "Spirits",
+                            "name": "Spirits",
+                            "description": "Premium spirits and liquors",
+                            "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "HENNESSY VS", "price": 90000, "description": "France Cognac", "image": "images/henvs.jpg" },
+                                { "name": "HENNESSY VSOP", "price": 130000, "description": "France Cognac", "image": "images/henvsop.jpg" },
+                                { "name": "MOET(BRUTE)", "price": 160000, "description": "France Champagne", "image": "images/moetbrute.jpg" },
+                                { "name": "MOET(ROSE)", "price": 160000, "description": "France Champagne", "image": "images/moetrose.jpg" },
+                                { "name": "BLACK LABEL", "price": 40000, "description": "12 Year Scotch Whisky", "image": "images/blabel.jpeg" },
+                                { "name": "RED LABEL", "price": 30000, "description": "12 Year Scotch Whisky", "image": "images/redlabel.jpg" },
+                                { "name": "GLENFIDDICH 12", "price": 120000, "description": "Single Malt Scotch Whisky", "image": "images/glen12.jpg" },
+                                { "name": "GLENFIDDICH 18", "price": 180000, "description": "Single Malt Scotch Whisky", "image": "images/glen18.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Sparkling Wines",
+                            "name": "Sparkling Wines",
+                            "description": "Sparkling wines for special occasions",
+                            "image": "https://images.unsplash.com/photo-1594145022409-28fbaf26d7c9?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "MATEUS BRUT ROSE", "price": 20000, "description": "Portuguese sparkling rosé", "image": "images/matus.jpg" },
+                                { "name": "ANDRE ROSE", "price": 20000, "description": "California sparkling rosé", "image": "images/andrerose.jpg" },
+                                { "name": "ANDRE BRUT", "price": 20000, "description": "Sparkling wine", "image": "images/andrebrute.jpg" },
+                                { "name": "HENKEL ROSE", "price": 45000, "description": "German sparkling rosé", "image": "images/henkel1.jpg" },
+                                { "name": "HENKEL VARIETY", "price": 10000, "description": "German sparkling wine selection", "image": "images/henkel.jpg" },
+                                { "name": "PINK LADY PERRY", "price": 8000, "description": "Sweet pear cider", "image": "images/pinklady.jpg" },
+                                { "name": "CASTLE DEFERO", "price": 20000, "description": "Sparkling wine", "image": "images/castle.jpg" },
+                                { "name": "FOUR COUSINS SPARKLING RED", "price": 20000, "description": "South African sparkling red wine", "image": "images/fourspark.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Red Wines",
+                            "name": "Red Wines",
+                            "description": "Fine red wines from around the world",
+                            "image": "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "CARLO ROSSI RED (SWEET)", "price": 25000, "description": "California Red Wine", "image": "images/carlo.jpeg" },
+                                { "name": "CARLO ROSSI RED", "price": 25000, "description": "California Red Wine", "image": "images/carlo1.jpeg" },
+                                { "name": "ESCUDO ROJO", "price": 23000, "description": "Chilean red wine", "image": "images/escudo.jpg" },
+                                { "name": "TOMA TOMA BODEGAS LOZANO", "price": 10000, "description": "Spanish red wine", "image": "images/toma.jpeg" },
+                                { "name": "SAN SIMON CASTILO", "price": 10000, "description": "Spanish red wine", "image": "images/castilo.jpeg" },
+                                { "name": "B&G", "price": 15000, "description": "French red wine", "image": "images/bg.jpeg" },
+                                { "name": "THOMAS BARTON", "price": 30000, "description": "French Bordeaux wine", "image": "images/thomas.jpeg" },
+                                { "name": "FOUR COUSINS RED", "price": 20000, "description": "South African red wine", "image": "images/four.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Beer",
+                            "name": "Beer",
+                            "description": "Local and international beers",
+                            "image": "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "HEINEKEN BIG", "price": 2500, "description": "Lager Beer", "image": "images/heneiken.jpg" },
+                                { "name": "BUDWEISER", "price": 2000, "description": "American Lager", "image": "images/budweiser.jpg" },
+                                { "name": "STAR", "price": 2500, "description": "Nigerian Lager", "image": "images/star.jpg" },
+                                { "name": "GULDER", "price": 2500, "description": "Nigerian Lager", "image": "images/gulder.jpg" },
+                                { "name": "LIFE", "price": 2000, "description": "Nigerian Lager", "image": "images/life.jpg" },
+                                { "name": "33 EXPORT", "price": 2500, "description": "Nigerian Lager", "image": "images/33.jpg" },
+                                { "name": "HERO", "price": 2000, "description": "Nigerian Lager", "image": "images/hero.jpg" },
+                                { "name": "SMIRNOFF ICE", "price": 1200, "description": "Flavored Malt Beverage", "image": "images/smirnoff.jpg" },
+                                { "name": "STAR RADLER", "price": 2000, "description": "Shandy", "image": "images/radler.jpg" },
+                                { "name": "HARP", "price": 1500, "description": "Herbal Alcoholic Drink", "image": "images/harp.jpg" },
+                                { "name": "ORIGIN BEER", "price": 2000, "description": "Herbal Alcoholic Drink", "image": "images/origin.jpg" },
+                                { "name": "DESPERADOS", "price": 2000, "description": "Tequila Flavored Beer", "image": "images/desperado.jpg" },
+                                { "name": "TIGER BEER", "price": 1700, "description": "Lager Beer", "image": "images/tiger.jpg" },
+                                { "name": "TROPHY BEER", "price": 2000, "description": "Nigerian Lager", "image": "images/trophy.jpg" },
+                                { "name": "FLYING FISH", "price": 1700, "description": "Nigerian Lager", "image": "images/flyingfish.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Stout",
+                            "name": "Stout",
+                            "description": "Rich and creamy stouts",
+                            "image": "https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "GUINNESS FOREIGN EXTRA STOUT (BIG)", "price": 3000, "description": "600ml", "image": "images/guiness.jpg" },
+                                { "name": "GUINNESS FOREIGN EXTRA STOUT (MEDIUM)", "price": 2000, "description": "33cl", "image": "images/guiness.jpg" },
+                                { "name": "GUINNESS FOREIGN EXTRA STOUT (SMALL)", "price": 2000, "description": "18cl", "image": "images/guiness.jpg" },
+                                { "name": "GUINNESS EXTRA SMOOTH", "price": 2000, "description": "33cl smooth stout", "image": "images/guiness.jpg" },
+                                { "name": "LEGEND STOUT (BIG)", "price": 2500, "description": "600ml", "image": "images/legend.jpg" },
+                                { "name": "LEGEND STOUT (MEDIUM)", "price": 2000, "description": "33cl", "image": "images/legend.jpg" },
+                                { "name": "LEGEND STOUT (SMALL)", "price": 2000, "description": "18cl", "image": "images/legend.jpg" },
+                                { "name": "TROPHY STOUT", "price": 2000, "description": "33cl", "image": "images/legend.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Bitters",
+                            "name": "Bitters",
+                            "description": "Traditional herbal bitters",
+                            "image": "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "ORIGIN", "price": 2500, "description": "Herbal bitters", "image": "images/originbitter.jpg" },
+                                { "name": "ODOGWU", "price": 2500, "description": "Herbal bitters", "image": "images/odogwu.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Energy-Drink",
+                            "name": "Energy Drinks",
+                            "description": "Energy boosters",
+                            "image": "https://images.unsplash.com/photo-1622543925917-763c34d1a86e?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "RED BULL", "price": 3500, "description": "Energy Drink", "image": "images/redbull.jpg" },
+                                { "name": "POWER HORSE", "price": 3500, "description": "Energy Drink", "image": "images/powerhorse.jpg" },
+                                { "name": "MONSTER", "price": 4000, "description": "Energy Drink", "image": "images/monster.jpg" },
+                                { "name": "BLACK BULLET", "price": 3000, "description": "Energy Drink", "image": "images/bullet.jpg" },
+								{ "name": "BLUE BULLET", "price": 3000, "description": "Energy Drink", "image": "images/bbullet.jpg" }
+                            ]
+                        },
+                        {
+                            "id": "Soft-Drink",
+                            "name": "Soft Drinks",
+                            "description": "Refreshing soft drinks",
+                            "image": "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "COCA-COLA", "price": 1000, "description": "Classic cola", "image": "images/coke.jpg" },
+                                { "name": "FANTA", "price": 1000, "description": "Fruit-flavored soda", "image": "images/fanta.jpg" },
+                                { "name": "SPRITE", "price": 1000, "description": "Lemon-lime soda", "image": "images/sprite.jpg" },
+                                { "name": "PEPSI", "price": 1000, "description": "Classic cola", "image": "images/pepsi.jpg" },
+                                { "name": "MIRINDA", "price": 1000, "description": "Fruit-flavored soda","image": "images/mirinda.jpg" },
+                                { "name": "MALT", "price": 1500, "description": "Malt drink", "image": "images/amstel.jpg" },
+                                { "name": "PEAK YOGHURT", "price": 4000, "description": "Yoghurt drink","image": "images/peak.jpg" },
+                                { "name": "CHI EXOTIC", "price": 3500, "description": "Fruit juice", "image": "images/exotic.jpg" },
+                                { "name": "CHIVITA", "price": 3500, "description": "Fruit juice", "image": "images/chivita.jpg" },
+                                { "name": "BOTTLED WATER", "price": 600, "description": "50cl", "image": "images/aqua.jpg" }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "Desserts",
+                    "name": "Desserts & Fruit",
+                    "description": "Sweet endings and fresh selections",
+                    "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop",
+                    "subMenus": [
+                        {
+                            "id": "Small Chops",
+                            "name": "Small Chops",
+                            "description": "Bite-sized snacks and pastries",
+                            "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "MEAT PIE", "price": 1500, "description": "Flaky pastry with meat filling", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" },
+                                { "name": "BEEF BURGER", "price": 5500, "description": "Juicy beef burger", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN BURGER", "price": 6500, "description": "Grilled chicken burger", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN PIE", "price": 1800, "description": "Flaky pastry with chicken filling", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" },
+                                { "name": "DOUGHNUT", "price": 1000, "description": "Sweet fried dough ring", "image": "https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&h=300&fit=crop" },
+                                { "name": "FISH PIE", "price": 1000, "description": "Flaky pastry with fish filling", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" },
+                                { "name": "SAUSAGE ROLL", "price": 1000, "description": "Puff pastry with sausage filling", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" },
+                                { "name": "BREAD ROLL", "price": 1000, "description": "Soft bread roll", "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" },
+                                { "name": "SPRING ROLL", "price": 1000, "description": "Crispy vegetable roll", "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&h=300&fit=crop" },
+                                { "name": "MOI-MOI", "price": 2000, "description": "Steamed bean pudding", "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=400&h=300&fit=crop" },
+                                { "name": "CUP CAKE", "price": 1000, "description": "Small sweet cake", "image": "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN WING", "price": 3000, "description": "Fried or grilled chicken wings", "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN BURGER", "price": 3500, "description": "Chicken patty in bun", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" },
+                                { "name": "BEEF BURGER", "price": 3500, "description": "Beef patty in bun", "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Sharwama Wrap",
+                            "name": "Sharwama Wrap",
+                            "description": "Delicious wrapped sandwiches",
+                            "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "BEEF WITH HOT DOG", "price": 5000, "description": "Beef sharwama with hot dog", "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop" },
+                                { "name": "CHICKEN WITH HOT DOG", "price": 6000, "description": "Chicken sharwama with hot dog", "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop" },
+                                { "name": "MIXED MEAT WITH HOT DOG", "price": 8000, "description": "Mixed meat sharwama with hot dog", "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop" },
+                                { "name": "EXTRA HOT DOG", "price": 1000, "description": "Additional hot dog", "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=400&h=300&fit=crop" }
+                            ]
+                        },
+                        {
+                            "id": "Smoothies & Fresh Juice",
+                            "name": "Fruit",
+                            "description": "Fresh fruit juices and smoothies",
+                            "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop",
+                            "items": [
+                                { "name": "PINEAPPLE JUICE", "price": 5000, "description": "Fresh pineapple juice", "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop" },
+                                { "name": "FRUIT SLICES", "price": 4000, "description": "Assorted fresh fruit slices", "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop" },
+                                { "name": "FRUIT SMOOTHIE", "price": 4500, "description": "Blended fresh fruit smoothie", "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec?w=400&h=300&fit=crop" }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // ==========================================
+        // STATE
+        // ==========================================
+        let cart = JSON.parse(localStorage.getItem('restaurant_cart')) || [];
+        let activeMenuId = null; // No menu selected on load
+        let searchTerm = '';
+        let openSubmenus = new Set();
+        let selectedSubcategoryId = null; // NEW: track selected subcategory
+
+        const CURRENCY = menuData.currency || '₦';
+        const TAX_RATE = 0.05;
+
+        // ==========================================
+        // UTILITIES
+        // ==========================================
+        const formatPrice = (price) => `${CURRENCY}${price.toLocaleString()}`;
+
+        const saveCart = () => {
+            localStorage.setItem('restaurant_cart', JSON.stringify(cart));
+            updateCartUI();
+        };
+
+        const showToast = (msg) => {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'custom-toast';
+            toast.innerHTML = `<i class="bi bi-check-circle-fill fs-5"></i><span>${msg}</span>`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        };
+
+        const generateId = (menuId, subMenuId, itemName) => {
+            return `${menuId}-${subMenuId}-${itemName.replace(/\s+/g, '-').toLowerCase()}`;
+        };
+
+        const capitalize = (str) => str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+
+        const escapeStr = (str) => str.replace(/'/g, "\\'").replace(/"/g, '\\"');
+
+        const getItemBadges = (name) => {
+            const badges = [];
+            const lower = name.toLowerCase();
+            if (lower.includes('pepper') || lower.includes('spicy') || lower.includes('asun') || lower.includes('peppered')) 
+                badges.push('<span class="badge-tag badge-spicy"><i class="bi bi-fire"></i>Spicy</span>');
+            if (lower.includes('vegetable') || lower.includes('veg') || lower.includes('salad') || lower.includes('plantain')) 
+                badges.push('<span class="badge-tag badge-veg"><i class="bi bi-leaf"></i>Veg</span>');
+            if (lower.includes('chicken') || lower.includes('beef') || lower.includes('goat') || lower.includes('fish') || lower.includes('burger')) 
+                badges.push('<span class="badge-tag badge-popular"><i class="bi bi-heart-fill"></i>Popular</span>');
+            return badges.join('');
+        };
+
+        // ==========================================
+        // RENDER HORIZONTAL MENU TABS
+        // ==========================================
+        const renderMenuTabs = () => {
+            const container = document.getElementById('menuTabs');
+            container.innerHTML = menuData.menus.map(menu => `
+                <button class="menu-tab ${menu.id === activeMenuId ? 'active' : ''}" 
+                        data-menu-id="${menu.id}"
+                        onclick="switchMenu('${menu.id}')">
+                    <img src="${menu.image}" alt="${menu.name}" loading="lazy">
+                    <span>${menu.name}</span>
+                </button>
+            `).join('');
+        };
+
+        // ==========================================
+        // CUSTOM ACCORDION TOGGLE
+        // ==========================================
+        const toggleSubmenu = (subMenuId) => {
+            const body = document.getElementById(`submenu-body-${subMenuId}`);
+            const header = document.getElementById(`submenu-header-${subMenuId}`);
+
+            if (!body || !header) return;
+
+            const isOpen = body.classList.contains('open');
+
+            if (isOpen) {
+                // Close this one
+                body.classList.remove('open');
+                body.style.maxHeight = '0px';
+                header.classList.remove('active');
+                openSubmenus.delete(subMenuId);
+            } else {
+                // Close ALL other open submenus first (only one open at a time)
+                openSubmenus.forEach(id => {
+                    if (id !== subMenuId) {
+                        const otherBody = document.getElementById(`submenu-body-${id}`);
+                        const otherHeader = document.getElementById(`submenu-header-${id}`);
+                        if (otherBody && otherHeader) {
+                            otherBody.classList.remove('open');
+                            otherBody.style.maxHeight = '0px';
+                            otherHeader.classList.remove('active');
+                        }
+                    }
+                });
+                openSubmenus.clear();
+
+                // Open this one
+                body.classList.add('open');
+                body.style.maxHeight = body.scrollHeight + 'px';
+                header.classList.add('active');
+                openSubmenus.add(subMenuId);
+            }
+        };
+
+        // ==========================================
+        // RENDER MENU CONTENT WITH CUSTOM ACCORDION
+        // ==========================================
+        const renderMenuContent = () => {
+            const container = document.getElementById('menuContent');
+            const menu = menuData.menus.find(m => m.id === activeMenuId);
+            
+            if (!menu) return;
+
+            let subMenus = menu.subMenus.map(sm => ({...sm}));
+            
+            if (searchTerm) {
+                const term = searchTerm.toLowerCase();
+                subMenus = subMenus.map(sm => ({
+                    ...sm,
+                    items: sm.items.filter(item => 
+                        item.name.toLowerCase().includes(term) || 
+                        (item.description && item.description.toLowerCase().includes(term))
+                    )
+                })).filter(sm => sm.items.length > 0);
+                
+                // Auto-open all when searching
+                openSubmenus = new Set(subMenus.map(sm => sm.id));
+            }
+
+            if (subMenus.length === 0) {
+                document.getElementById('noResults').classList.remove('d-none');
+                container.innerHTML = '';
+                return;
+            }
+            
+            document.getElementById('noResults').classList.add('d-none');
+
+            container.innerHTML = subMenus.map((subMenu, idx) => {
+                const isOpen = openSubmenus.has(subMenu.id) || searchTerm;
+                
+                
+                return `
+                <div class="submenu-card">
+                    <div class="submenu-header ${isOpen ? 'active' : ''}" 
+                         id="submenu-header-${subMenu.id}"
+                         onclick="toggleSubmenu('${subMenu.id}')">
+                        <div class="submenu-header-content">
+                            <img src="${subMenu.image}" class="submenu-img" alt="${subMenu.name}" loading="lazy">
+                            <div>
+                                <div>${subMenu.name}</div>
+                                <small class="opacity-75" style="font-size: 0.8rem; font-weight: 400;">${subMenu.description}</small>
+                            </div>
+                        </div>
+                        <div class="submenu-toggle">
+                            <span class="badge bg-secondary rounded-pill me-2">${subMenu.items.length}</span>
+                            <i class="bi bi-chevron-down toggle-icon"></i>
+                        </div>
+                    </div>
+                    <div class="submenu-body ${isOpen ? 'open' : ''}" 
+                         id="submenu-body-${subMenu.id}"
+                         style="${isOpen ? 'max-height: 5000px;' : 'max-height: 0px;'}">
+                        <div class="p-3">
+                            <div class="row g-3">
+                                ${subMenu.items.map(item => {
+                                    const itemId = generateId(menu.id, subMenu.id, item.name);
+                                    return `
+                                    <div class="col-12 col-md-6 col-lg-4">
+                                        <div class="item-card">
+                                            <div class="item-img-wrapper">
+                                                <img src="${item.image}" class="item-img" alt="${item.name}" loading="lazy">
+                                                <div class="item-badge-overlay">
+                                                    ${getItemBadges(item.name)}
+                                                </div>
+                                            </div>
+                                            <div class="item-body">
+                                                <div class="item-name">${capitalize(item.name)}</div>
+                                                ${item.description ? `<p class="item-desc">${item.description}</p>` : ''}
+                                                <div class="item-footer">
+                                                    <span class="item-price">${formatPrice(item.price)}</span>
+                                                    <button class="btn-add" onclick="addToCart('${itemId}', '${escapeStr(item.name)}', ${item.price}, '${escapeStr(item.description || '')}', '${subMenu.name}', '${escapeStr(item.image)}')">
+                                                        <i class="bi bi-plus-lg"></i>Add
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        };
+
+        // ==========================================
+        // CART FUNCTIONS
+        // ==========================================
+        const addToCart = (id, name, price, description, category, image) => {
+            const existing = cart.find(i => i.id === id);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ id, name, price, description, category, image, quantity: 1 });
+            }
+            saveCart();
+            showToast(`${capitalize(name)} added to cart`);
+            
+            const badge = document.getElementById('cartCount');
+            badge.classList.add('bump');
+            setTimeout(() => badge.classList.remove('bump'), 200);
+        };
+
+        const removeFromCart = (id) => {
+            cart = cart.filter(i => i.id !== id);
+            saveCart();
+        };
+
+        const updateQuantity = (id, change) => {
+            const item = cart.find(i => i.id === id);
+            if (!item) return;
+            item.quantity += change;
+            if (item.quantity <= 0) removeFromCart(id);
+            else saveCart();
+        };
+
+        const updateCartUI = () => {
+            const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            document.getElementById('cartItemCount').textContent = totalItems;
+
+            const container = document.getElementById('cartItems');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="bi bi-cart-x"></i>
+                        <h5>Your cart is empty</h5>
+                        <p class="small">Add items from the menu to get started</p>
+                    </div>
+                `;
+                document.getElementById('checkoutBtn').disabled = true;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item">
+                        <img src="${item.image}" class="cart-item-img" alt="${item.name}" loading="lazy">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${capitalize(item.name)}</div>
+                            <div class="cart-item-price">${formatPrice(item.price)} each</div>
+                            <small class="text-muted">${item.category}</small>
+                        </div>
+                        <div class="qty-control">
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">−</button>
+                            <span class="qty-value">${item.quantity}</span>
+                            <button class="qty-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
+                        </div>
+                        <div class="text-end" style="min-width: 80px;">
+                            <div class="fw-bold" style="color: var(--dark);">${formatPrice(item.price * item.quantity)}</div>
+                        </div>
+                        <button class="btn-remove" onclick="removeFromCart('${item.id}')">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                    </div>
+                `).join('');
+                document.getElementById('checkoutBtn').disabled = false;
+            }
+
+            const subtotal = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            const tax = Math.round(subtotal * TAX_RATE);
+            const total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('tax').textContent = formatPrice(tax);
+            document.getElementById('total').textContent = formatPrice(total);
+        };
+
+        // ==========================================
+        // BREADCRUMB & SUBCATEGORY SELECTION
+        // ==========================================
+        const selectSubcategory = (subMenuId) => {
+            // Just update breadcrumb, don't change visibility
+            selectedSubcategoryId = subMenuId;
+            updateBreadcrumb();
+        };
+
+        const updateBreadcrumb = () => {
+            const menu = menuData.menus.find(m => m.id === activeMenuId);
+            const bcMenu = document.getElementById('bcMenu');
+            const bcCategory = document.getElementById('bcCategory');
+            const bcCategoryText = document.getElementById('bcCategoryText');
+            const bcSubcategory = document.getElementById('bcSubcategory');
+            const bcSubcategoryText = document.getElementById('bcSubcategoryText');
+            const bcSep1 = document.getElementById('bcSep1');
+            const bcSep2 = document.getElementById('bcSep2');
+
+            // Reset classes
+            bcMenu.classList.remove('active');
+            bcCategory.classList.remove('active');
+            bcSubcategory.classList.remove('active');
+
+            // No menu selected - hide breadcrumb entirely
+            if (!menu) {
+                document.getElementById('breadcrumbWrapper').style.display = 'none';
+                return;
+            }
+
+            document.getElementById('breadcrumbWrapper').style.display = '';
+
+            // Reset classes
+            bcMenu.classList.remove('active');
+            bcCategory.classList.remove('active');
+            bcSubcategory.classList.remove('active');
+
+            if (selectedSubcategoryId) {
+                const subMenu = menu.subMenus.find(sm => sm.id === selectedSubcategoryId);
+
+                // Show all breadcrumb items
+                bcSep1.style.display = '';
+                bcCategory.style.display = '';
+                bcSep2.style.display = '';
+                bcSubcategory.style.display = '';
+
+                bcCategoryText.textContent = menu.name;
+                bcSubcategoryText.textContent = subMenu ? subMenu.name : '';
+
+                bcSubcategory.classList.add('active');
+            } else {
+                // Only show Menu
+                bcSep1.style.display = 'none';
+                bcCategory.style.display = 'none';
+                bcSep2.style.display = 'none';
+                bcSubcategory.style.display = 'none';
+                bcMenu.classList.add('active');
+            }
+        };
+
+        const breadcrumbGoToMenu = () => {
+            selectedSubcategoryId = null;
+            activeMenuId = null;
+            openSubmenus = new Set();
+            updateBreadcrumb();
+            renderMenuTabs();
+            renderMenuContent();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        const breadcrumbGoToCategory = () => {
+            selectedSubcategoryId = null;
+            updateBreadcrumb();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // ==========================================
+        // NAVIGATION
+        // ==========================================
+        const switchMenu = (menuId) => {
+            activeMenuId = menuId;
+            selectedSubcategoryId = null; // Reset selected subcategory
+            openSubmenus = new Set(); // Reset open submenus - all collapsed
+            updateBreadcrumb();
+            renderMenuTabs();
+            renderMenuContent();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // ==========================================
+        // CART SIDEBAR
+        // ==========================================
+        const openCart = () => {
+            document.getElementById('cartSidebar').classList.add('open');
+            document.getElementById('cartOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeCart = () => {
+            document.getElementById('cartSidebar').classList.remove('open');
+            document.getElementById('cartOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        document.getElementById('cartToggleBtn').addEventListener('click', openCart);
+        document.getElementById('closeCart').addEventListener('click', closeCart);
+        document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCart();
+        });
+
+        // ==========================================
+        // SEARCH
+        // ==========================================
+        let searchTimeout;
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                searchTerm = e.target.value.trim();
+                if (searchTerm) {
+                    // When searching, temporarily show all matching without breadcrumb changes
+                    renderMenuContent();
+                } else {
+                    // When clearing search, restore selected subcategory view
+                    renderMenuContent();
+                }
+            }, 300);
+        });
+
+        // ==========================================
+        // CHECKOUT
+        // ==========================================
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            if (cart.length === 0) return;
+            
+            const total = cart.reduce((sum, i) => sum + (i.price * i.quantity), 0);
+            const tax = Math.round(total * TAX_RATE);
+            const grandTotal = total + tax;
+            
+            showToast(`Order placed! Total: ${formatPrice(grandTotal)}`);
+            cart = [];
+            saveCart();
+            closeCart();
+        });
+
+        // ==========================================
+        // INIT
+        // ==========================================
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('spinner').classList.add('hidden');
+                renderMenuTabs();
+                updateBreadcrumb();
+                renderMenuContent();
+                updateCartUI();
+            }, 600);
+        });
+
+        // Expose functions globally
+        window.switchMenu = switchMenu;
+        window.toggleSubmenu = toggleSubmenu;
+        window.selectSubcategory = selectSubcategory;
+        window.breadcrumbGoToMenu = breadcrumbGoToMenu;
+        window.breadcrumbGoToCategory = breadcrumbGoToCategory;
+        window.addToCart = addToCart;
+        window.updateQuantity = updateQuantity;
+        window.removeFromCart = removeFromCart;
+    </script>
+</body>
+</html>
